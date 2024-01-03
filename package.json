@@ -1,0 +1,29 @@
+{
+  "name": "full-stack-web-development",
+  "version": "0.0.1",
+  "scripts": {
+    "predev": "prisma migrate dev",
+    "dev": "svelte-kit dev",
+    "build": "svelte-kit build",
+    "postbuild": "cp prisma/schema.prisma .vercel_build_output/functions/node/render/ && cp node_modules/@prisma/engines/*query* .vercel_build_output/functions/node/render/",
+    "package": "svelte-kit package",
+    "preview": "svelte-kit preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+    "vercel-build": "prisma migrate deploy && npm run build"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/kit": "next",
+    "prisma": "^3.5.0",
+    "svelte": "^3.44.0",
+    "svelte-check": "^2.2.6",
+    "svelte-preprocess": "^4.9.4",
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.3"
+  },
+  "type": "module",
+  "dependencies": {
+    "@prisma/client": "^3.5.0"
+  }
+}
